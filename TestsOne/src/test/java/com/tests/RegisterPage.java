@@ -12,7 +12,7 @@ import org.testng.annotations.Test;
 
 import java.util.concurrent.TimeUnit;
 
-public class TestOne {
+public class RegisterPage {
 
     private WebDriver driver;
 
@@ -23,7 +23,7 @@ public class TestOne {
         driver.manage().window().maximize();
     }
 
-    @Test // Marking this method as part of the test
+    @Test (description = "1. Open page http://store.demoqa.com/")
     public void mainPage() throws InterruptedException {
 
         driver.get("http://store.demoqa.com/");
@@ -43,22 +43,6 @@ public class TestOne {
         driver.findElement(By.cssSelector("#fancy_notification_content > a.go_to_checkout")).click();
         }
 
-
-
-
-//    @Test // Marking this method as part of the test
-//    public void gotoSeleniumWikiPageFailure() {
-//        // Go to the Wikipedia home page
-//        driver.get("https://en.wikipedia.org/");
-//        // Find the text input element by its id and type "Selenium"
-//        driver.findElement(By.id("searchInput")).sendKeys("Selenium");
-//        // Click search button
-//        driver.findElement(By.id("searchButton")).click();
-//        // Get text from header of the Selenium page
-//        String header = driver.findElement(By.id("firstHeading")).getText();
-//        // Verify that header equals "Selenium WebDriver"
-//        Assert.assertEquals(header, "Selenium WebDriver");
-//    }
 
     @AfterClass // Runs this method after all the test methods in the current class have been run
     public void tearDown() {
