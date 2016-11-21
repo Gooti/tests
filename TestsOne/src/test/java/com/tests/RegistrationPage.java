@@ -10,12 +10,23 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
+import test.junit.testsetup.Data;
+
+import java.util.concurrent.TimeUnit;
 
 import static org.testng.Assert.assertEquals;
 
 public class RegistrationPage {
 
     private WebDriver driver;
+    private void pickData () {
+        Methods.getElement("//select[contains(@id,'mm_date_8')]//option[contains(@value,'1')]", Methods.FindMode.XPATH).click();
+        Methods.getElement("//select[contains(@id,'dd_date_8')]//option[contains(@value,'12')]", Methods.FindMode.XPATH).click();
+        Methods.getElement("//select[contains(@id,'yy_date_8')]//option[contains(@value,'2014')]", Methods.FindMode.XPATH).click();
+        return;
+
+    }
+
 
     @BeforeClass
     public void setUp() {
@@ -37,34 +48,27 @@ public class RegistrationPage {
         System.out.println(title);
         WebElement registration = driver.findElement(By.xpath("//a[contains(.,'Registration')]"));
         registration.click();
+        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+        Methods.fillElementFoundByName("first_name", "Mateusz");
+        Methods.fillElementFoundByName("last_name", "Urbaniak");
 
-
-        WebElement firstName = driver.findElement(By.name("first_name"));
-        firstName.sendKeys("Mateusz");
-        WebElement lastName = driver.findElement(By.name("last_name"));
-        lastName.sendKeys("Urbaniak");
-        WebElement element = driver.findElement(By.xpath("//div[contains(@class,'radio_wrap')]//input[contains(@value,'single')]"));
-        if (element.isSelected()) {
+        WebElement value = driver.findElement(By.xpath("//div[contains(@class,'radio_wrap')]//input[contains(@value,'single')]"));
+        if (value.isSelected()) {
             System.out.println("Already clicked.");
-        } else element.click();
-        WebElement radioReading = driver.findElement(By.xpath("//div[contains(@class,'radio_wrap')]//input[contains(@value,'reading')]"));
-        radioReading.click();
-        WebElement listCountry = driver.findElement(By.xpath("//select[contains(@id,'dropdown_7')]//option[contains(@value,'Andorra')]"));
+        } else value.click();
+
+        Methods.getElement("//div[contains(@class,'radio_wrap')]//input[contains(@value,'reading')]", Methods.FindMode.XPATH).click();
+        WebElement listCountry = Methods.getElement("//select[contains(@id,'dropdown_7')]//option[contains(@value,'Andorra')]", Methods.FindMode.XPATH);
+        listCountry.click();
         System.out.println("Value 'Country' = " + listCountry);
-        WebElement mmDate = driver.findElement(By.xpath("//select[contains(@id,'mm_date_8')]//option[contains(@value,'1')]"));
-        mmDate.click();
-        WebElement ddDate = driver.findElement(By.xpath("//select[contains(@id,'dd_date_8')]//option[contains(@value,'12')]"));
-        ddDate.click();
-        WebElement yyDate = driver.findElement(By.xpath("//select[contains(@id,'yy_date_8')]//option[contains(@value,'2014')]"));
-        yyDate.click();
-        WebElement number = driver.findElement(By.name("phone_9"));
-        number.sendKeys("ThisIsNotNumber");
-        WebElement userName = driver.findElement(By.name("username"));
-        userName.sendKeys("INeedBetterUsername");
-        WebElement mail = driver.findElement(By.name("e_mail"));
-        mail.sendKeys("mail@mail.com");
-        WebElement description = driver.findElement(By.name("description"));
-        description.sendKeys("Roses are red. I have nth special to say.");
+
+        pickData();
+
+        WebElement number = Methods.fillElementFoundByName("phone_9", "ThisIsNotNumber");
+        Methods.fillElementFoundByName("username", "INeedBetterUsername");
+        Methods.fillElementFoundByName("e_mail", "mail@mail.com");
+        Methods.fillElementFoundByName("description", "Roses are red. I have nth special to say.");
+
         driver.findElement(By.id("password_2")).sendKeys(password);
         driver.findElement(By.id("confirm_password_password_2")).sendKeys(password);
         if (password.equals("ThisIsGoodPassword123!")) {
@@ -73,7 +77,6 @@ public class RegistrationPage {
         } else number.clear();
         number.sendKeys("9876543210");
         assertEquals(title, "Demoqa | Just another WordPress site");
-
     }
 
 
