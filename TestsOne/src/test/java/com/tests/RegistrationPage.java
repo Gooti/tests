@@ -7,6 +7,7 @@ package com.tests;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
@@ -35,7 +36,6 @@ public class RegistrationPage extends AbstractTestNGSpringContextTests {
     @BeforeClass
     public void setUp() {
         System.out.println("Driver used is: " + driver);
-
     }
 
     @Test(description = "1. Fill in registration page http://demoqa.com/")
@@ -84,8 +84,7 @@ public class RegistrationPage extends AbstractTestNGSpringContextTests {
 
     @AfterClass
     public void tearDown() {
-        // Close all browser windows and safely end the session
-        driver.quit();
+//        driver.quit();
     }
 
 }

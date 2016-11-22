@@ -7,37 +7,38 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import java.util.concurrent.TimeUnit;
 
-public class TestOne {
+@ContextConfiguration("testone.xml")
+public class TestOne extends AbstractTestNGSpringContextTests {
 
-//    @Autowired
+    @Autowired
     private WebDriver driver;
+    @Autowired
+    private Methods methods;
 
-    @BeforeClass // Runs this method before the first test method in the current class is invoked
+    @BeforeClass
     public void setUp() {
-        // Create a new instance of the Firefox driver
-        driver = new FirefoxDriver();
-        driver.manage().window().maximize();
     }
 
-    @Test // Marking this method as part of the test
+    @Test
     public void mainPage() throws InterruptedException {
 
         driver.get("http://store.demoqa.com/");
 
-        driver.findElement(By.xpath("//a[contains(.,'Product Category')]")).click();
+        methods.getElement("//a[contains(.,'Product Category')]", Methods.FindMode.XPATH).click();
         String element = driver.getTitle();
         if (element.equals("Product Category | ONLINE STORE")){
-            driver.findElement(By.xpath("//div[contains(@class,'group')]//a[contains(.,'iPhone 5')]")).click();
+            methods.getElement("//div[contains(@class,'group')]//a[contains(.,'iPhone 5')]", Methods.FindMode.XPATH).click();
             System.out.println("Page with title '" + element + "' has been loaded.");
         } else System.out.println("Page has not loaded!");
-        driver.findElement(By.xpath("//input[contains(@value,'Add To Cart')]")).click();
-//        System.out.println("clicked");
+        methods.getElement("//input[contains(@value,'Add To Cart')]", Methods.FindMode.XPATH).click();
 
         String parentWindowHandle = driver.getWindowHandle();
         System.out.println("Parent window's handle -> " + parentWindowHandle);
@@ -45,8 +46,6 @@ public class TestOne {
         driver.findElement(By.cssSelector("#fancy_notification_content > a.go_to_checkout")).click();
         }
 
-
-//    }
 
     @AfterClass // Runs this method after all the test methods in the current class have been run
     public void tearDown() {

@@ -5,7 +5,7 @@
     <test name="order">
         <classes>
             <class name="com.tests.RegistrationPage" />
-            <!--<class name="com.tests.TestOne" />-->
+            <class name="com.tests.TestOne" />
         </classes>
     </test>
 
