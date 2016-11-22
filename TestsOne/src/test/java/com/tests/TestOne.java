@@ -6,6 +6,7 @@ package com.tests;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -14,6 +15,7 @@ import java.util.concurrent.TimeUnit;
 
 public class TestOne {
 
+//    @Autowired
     private WebDriver driver;
 
     @BeforeClass // Runs this method before the first test method in the current class is invoked
