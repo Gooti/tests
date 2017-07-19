@@ -40,10 +40,10 @@ public class RegistrationPage extends AbstractTestNGSpringContextTests {
 
     @BeforeClass
     public void setUp() {
-
+        methods.setPage("http://localhost:1331/TK-StronaRejestracja/");
     }
 
-    @Test(description = "1. Fill in registration page http://demoqa.com/")
+    @Test(description = "1. Start a page and explore")
     public void registrationPage() throws InterruptedException {
 
         methods.getElement("//a[contains(.,'Aktualności')]", Methods.FindMode.XPATH).click();
@@ -55,9 +55,6 @@ public class RegistrationPage extends AbstractTestNGSpringContextTests {
         methods.getElement("//a[contains(.,'Zasady')]", Methods.FindMode.XPATH).click();
         methods.getElement("//a[contains(.,'Komisja')]", Methods.FindMode.XPATH).click();
         methods.getElement("//a[contains(.,'Patronaty')]", Methods.FindMode.XPATH).click();
-
-
-
     }
 
     @AfterClass

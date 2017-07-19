@@ -20,7 +20,6 @@ public class Methods {
         System.setProperty("webdriver.gecko.driver", "C:\\tests\\geckodriver\\geckodriver.exe");
         driver = new FirefoxDriver();
         System.out.println("Driver used is: " + driver);
-        driver.get("http://localhost:1331/TK-StronaRejestracja/");
 
     }
 
@@ -70,6 +69,13 @@ public class Methods {
         WebDriver closeDriver = getDriver();
         closeDriver.quit();
         return closeDriver;
+    }
+
+    public WebDriver setPage(String page)
+    {
+        WebDriver Page = getDriver();
+        Page.get(page);
+        return Page;
     }
 
 
