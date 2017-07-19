@@ -8,13 +8,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
-
-import java.util.List;
-import java.util.Set;
 
 public class Methods {
     public static WebDriver getDriver() {
@@ -71,5 +64,13 @@ public class Methods {
         }
         return element;
     }
+
+    public WebDriver quit()
+    {
+        WebDriver closeDriver = getDriver();
+        closeDriver.quit();
+        return closeDriver;
+    }
+
 
 }

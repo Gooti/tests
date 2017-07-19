@@ -30,7 +30,7 @@ public class RegistrationPage extends AbstractTestNGSpringContextTests {
     public void setMethods(Methods methods) {
         this.methods = methods;
     }
-    
+
     private void pickData() {
 //        methods.getElement("//select[contains(@id,'mm_date_8')]//option[contains(@value,'1')]", Methods.FindMode.XPATH).click();
 //        methods.getElement("//select[contains(@id,'dd_date_8')]//option[contains(@value,'12')]", Methods.FindMode.XPATH).click();
@@ -62,7 +62,7 @@ public class RegistrationPage extends AbstractTestNGSpringContextTests {
 
     @AfterClass
     public void tearDown() {
-//        driver.quit();
+        methods.quit();
     }
 
 
