@@ -13,10 +13,23 @@ import org.springframework.stereotype.Component;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
 
-    @ContextConfiguration("testone.xml")
+import java.util.List;
+import java.util.Set;
+
 public class Methods {
-    @Autowired
-    private WebDriver driver;
+    public static WebDriver getDriver() {
+        return driver;
+    }
+
+    private static WebDriver driver;
+
+    {
+        System.setProperty("webdriver.gecko.driver", "C:\\tests\\geckodriver\\geckodriver.exe");
+        driver = new FirefoxDriver();
+        System.out.println("Driver used is: " + driver);
+        driver.get("http://localhost:1331/TK-StronaRejestracja/");
+
+    }
 
     public enum FindMode {NAME, ID, XPATH}
 

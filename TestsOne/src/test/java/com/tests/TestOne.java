@@ -17,33 +17,23 @@ import java.util.concurrent.TimeUnit;
 
 @ContextConfiguration("testone.xml")
 public class TestOne extends AbstractTestNGSpringContextTests {
+    public static WebDriver driver;
 
-    @Autowired
-    private WebDriver driver;
     @Autowired
     private Methods methods;
 
     @BeforeClass
     public void setUp() {
+
     }
 
     @Test
     public void mainPage() throws InterruptedException {
-
+        System.setProperty("webdriver.gecko.driver", "C:\\tests\\geckodriver\\geckodriver.exe");
+        WebDriver driver = new FirefoxDriver();
         driver.get("http://store.demoqa.com/");
 
-        methods.getElement("//a[contains(.,'Product Category')]", Methods.FindMode.XPATH).click();
-        String element = driver.getTitle();
-        if (element.equals("Product Category | ONLINE STORE")){
-            methods.getElement("//div[contains(@class,'group')]//a[contains(.,'iPhone 5')]", Methods.FindMode.XPATH).click();
-            System.out.println("Page with title '" + element + "' has been loaded.");
-        } else System.out.println("Page has not loaded!");
-        methods.getElement("//input[contains(@value,'Add To Cart')]", Methods.FindMode.XPATH).click();
 
-        String parentWindowHandle = driver.getWindowHandle();
-        System.out.println("Parent window's handle -> " + parentWindowHandle);
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        driver.findElement(By.cssSelector("#fancy_notification_content > a.go_to_checkout")).click();
         }
 
 
