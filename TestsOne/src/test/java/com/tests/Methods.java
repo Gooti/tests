@@ -49,7 +49,7 @@ public class Methods {
     }
 
 
-    public WebElement getElement(String field, FindMode findMode) {
+    public static WebElement getElement(String field, FindMode findMode) {
 
         WebElement element = null;
         switch (findMode) {
@@ -86,53 +86,5 @@ public class Methods {
     public static void clickVisibled(WebElement webElement) {
         webElement.click();
     }
-
-    /////step01_MainPage/////
-
-    public void goToAktualnosci() {
-        WebElement buttonAktualnosci = getElement("//a[contains(.,'Aktualności')]", Methods.FindMode.XPATH);
-        clickVisibled(buttonAktualnosci);
-    }
-
-    public void goToOkonkursie() {
-        WebElement buttonOkonkursie = getElement("//a[contains(.,'O konkursie')]", Methods.FindMode.XPATH);
-        clickVisibled(buttonOkonkursie);
-    }
-
-    public void goToRejestracja() {
-        WebElement buttonRejestracja = getElement("//a[contains(.,'Rejestracja')]", Methods.FindMode.XPATH);
-        clickVisibled(buttonRejestracja);
-    }
-
-    public void goToHarmonogram() {
-        WebElement buttonHarmonogram = getElement("//a[contains(.,'Harmonogram')]", Methods.FindMode.XPATH);
-        clickVisibled(buttonHarmonogram);
-    }
-
-    public void goToZasady() {
-        WebElement buttonZasady = getElement("//a[contains(.,'Zasady')]", Methods.FindMode.XPATH);
-        clickVisibled(buttonZasady);
-    }
-
-    public void goToKomisja() {
-        WebElement buttonKomisja = getElement("//a[contains(.,'Komisja')]", Methods.FindMode.XPATH);
-        clickVisibled(buttonKomisja);
-    }
-
-    public void goToPatronaty() {
-        WebElement buttonPatronaty = getElement("//a[contains(.,'Patronaty')]", Methods.FindMode.XPATH);
-        clickVisibled(buttonPatronaty);
-    }
-
-    public void goToAll() {
-        goToAktualnosci();
-        goToOkonkursie();
-        goToRejestracja();
-        goToHarmonogram();
-        goToZasady();
-        goToKomisja();
-        goToPatronaty();
-    }
-    /////step01_MainPage/////
 
 }
