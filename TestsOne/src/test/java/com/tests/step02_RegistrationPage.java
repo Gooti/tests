@@ -21,13 +21,13 @@ import java.util.concurrent.TimeUnit;
 import static org.testng.Assert.assertEquals;
 @ContextConfiguration("testone.xml")
 
-public class RegistrationPage extends AbstractTestNGSpringContextTests {
-
+public class step02_RegistrationPage extends AbstractTestNGSpringContextTests {
 
     @Autowired
     private Methods methods;
 
     public void setMethods(Methods methods) {
+
         this.methods = methods;
     }
 
@@ -40,7 +40,8 @@ public class RegistrationPage extends AbstractTestNGSpringContextTests {
 
     @BeforeClass
     public void setUp() {
-        methods.setPage("http://localhost:1331/TK-StronaRejestracja/");
+
+        methods.setPage("http://localhost/TK-StronaRejestracja/");
     }
 
     @Test(description = "1. Start a page and explore")

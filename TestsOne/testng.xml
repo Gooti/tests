@@ -4,8 +4,8 @@
 
     <test name="order">
         <classes>
-            <class name="com.tests.RegistrationPage" />
-            <!--<class name="com.tests.TestOne" />-->
+            <!--<class name="com.tests.step02_RegistrationPage" />-->
+            <class name="com.tests.step01_MainPage" />
         </classes>
     </test>
 

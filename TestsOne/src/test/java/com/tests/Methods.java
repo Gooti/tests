@@ -8,6 +8,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxProfile;
+import org.openqa.selenium.firefox.internal.ProfilesIni;
 
 public class Methods {
     public static WebDriver getDriver() {
@@ -17,8 +19,11 @@ public class Methods {
     private static WebDriver driver;
 
     {
+        ProfilesIni profile = new ProfilesIni();
+        FirefoxProfile myprofile = profile.getProfile("New");
+        System.setProperty("webdriver.firefox.bin", "C:\\Program Files (x86)\\FirefoxNew\\firefox.exe");
         System.setProperty("webdriver.gecko.driver", "C:\\tests\\geckodriver\\geckodriver.exe");
-        driver = new FirefoxDriver();
+        driver = new FirefoxDriver(myprofile);
         System.out.println("Driver used is: " + driver);
 
     }
@@ -78,5 +83,56 @@ public class Methods {
         return Page;
     }
 
+    public static void clickVisibled(WebElement webElement) {
+        webElement.click();
+    }
+
+    /////step01_MainPage/////
+
+    public void goToAktualnosci() {
+        WebElement buttonAktualnosci = getElement("//a[contains(.,'Aktualności')]", Methods.FindMode.XPATH);
+        clickVisibled(buttonAktualnosci);
+    }
+
+    public void goToOkonkursie() {
+        WebElement buttonOkonkursie = getElement("//a[contains(.,'O konkursie')]", Methods.FindMode.XPATH);
+        clickVisibled(buttonOkonkursie);
+    }
+
+    public void goToRejestracja() {
+        WebElement buttonRejestracja = getElement("//a[contains(.,'Rejestracja')]", Methods.FindMode.XPATH);
+        clickVisibled(buttonRejestracja);
+    }
+
+    public void goToHarmonogram() {
+        WebElement buttonHarmonogram = getElement("//a[contains(.,'Harmonogram')]", Methods.FindMode.XPATH);
+        clickVisibled(buttonHarmonogram);
+    }
+
+    public void goToZasady() {
+        WebElement buttonZasady = getElement("//a[contains(.,'Zasady')]", Methods.FindMode.XPATH);
+        clickVisibled(buttonZasady);
+    }
+
+    public void goToKomisja() {
+        WebElement buttonKomisja = getElement("//a[contains(.,'Komisja')]", Methods.FindMode.XPATH);
+        clickVisibled(buttonKomisja);
+    }
+
+    public void goToPatronaty() {
+        WebElement buttonPatronaty = getElement("//a[contains(.,'Patronaty')]", Methods.FindMode.XPATH);
+        clickVisibled(buttonPatronaty);
+    }
+
+    public void goToAll() {
+        goToAktualnosci();
+        goToOkonkursie();
+        goToRejestracja();
+        goToHarmonogram();
+        goToZasady();
+        goToKomisja();
+        goToPatronaty();
+    }
+    /////step01_MainPage/////
 
 }
