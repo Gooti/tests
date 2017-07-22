@@ -1,14 +1,16 @@
 package com.tests.page.Registration;
 
 import com.tests.Methods;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.testng.Assert;
 
 /**
  * Created by Comarch on 2017-07-21.
  */
 public class MainPage {
+
     @Autowired
     private Methods methods;
 
@@ -16,41 +18,35 @@ public class MainPage {
         this.methods = methods;
     }
 
-    public static void goToAktualnosci() {
-        WebElement buttonAktualnosci = Methods.getElement("//a[contains(.,'Aktualności')]", Methods.FindMode.XPATH);
-        Methods.clickVisibled(buttonAktualnosci);
+    public void goToAktualnosci() {
+        methods.click("//a[contains(.,'Aktualności')]", Methods.FindMode.XPATH);
     }
 
-    public static void goToOkonkursie() {
-        WebElement buttonOkonkursie = Methods.getElement("//a[contains(.,'O konkursie')]", Methods.FindMode.XPATH);
-        Methods.clickVisibled(buttonOkonkursie);
+    public void goToOkonkursie() {
+        methods.click("//a[contains(.,'O konkursie')]", Methods.FindMode.XPATH);
     }
 
-    public static void goToRejestracja() {
-        WebElement buttonRejestracja = Methods.getElement("//a[contains(.,'Rejestracja')]", Methods.FindMode.XPATH);
-        Methods.clickVisibled(buttonRejestracja);
+    public void goToRejestracja() {
+        methods.click("//a[contains(.,'Rejestracja')]", Methods.FindMode.XPATH);
     }
 
-    public static void goToHarmonogram() {
-        WebElement buttonHarmonogram = Methods.getElement("//a[contains(.,'Harmonogram')]", Methods.FindMode.XPATH);
-        Methods.clickVisibled(buttonHarmonogram);
+    public void goToHarmonogram() {
+        methods.click("//a[contains(.,'Harmonogram')]", Methods.FindMode.XPATH);
     }
 
-    public static void goToZasady() {
-        WebElement buttonZasady = Methods.getElement("//a[contains(.,'Zasady')]", Methods.FindMode.XPATH);
-        Methods.clickVisibled(buttonZasady);
+    public void goToZasady() {
+        methods.click("//a[contains(.,'Zasady')]", Methods.FindMode.XPATH);
     }
 
-    public static void goToKomisja() {
-        WebElement buttonKomisja = Methods.getElement("//a[contains(.,'Komisja')]", Methods.FindMode.XPATH);
-        Methods.clickVisibled(buttonKomisja);
-    }
-    public static void goToPatronaty() {
-        WebElement buttonPatronaty = Methods.getElement("//a[contains(.,'Patronaty')]", Methods.FindMode.XPATH);
-        Methods.clickVisibled(buttonPatronaty);
+    public void goToKomisja() {
+        methods.click("//a[contains(.,'Komisja')]", Methods.FindMode.XPATH);
     }
 
-    public static void goToAll() {
+    public void goToPatronaty() {
+        methods.click("//a[contains(.,'Patronaty')]", Methods.FindMode.XPATH);
+    }
+
+    public void goToAll() {
         goToAktualnosci();
         goToOkonkursie();
         goToRejestracja();
@@ -60,5 +56,32 @@ public class MainPage {
         goToPatronaty();
     }
 
+    public void imgPKClick() {
+        methods.click("//img[contains(@src,'img/bcg03.png')]", Methods.FindMode.XPATH);
+    }
 
+    public void imgPKFP() {
+        methods.click("//img[contains(@src,'img/compFP.png')]", Methods.FindMode.XPATH);
+    }
+
+    public void imgPKFB() {
+        methods.click("//img[contains(@src,'img/img06.png')]", Methods.FindMode.XPATH);
+    }
+    //TODO dokonczyc przejmowanie okna
+    public void imgClickAll() {
+        imgPKClick();
+        Methods.back();
+        imgPKFP();
+        Methods.back();
+        imgPKFB();
+        Methods.back();
+        Methods.forward();
+        Methods.back();
+    }
+
+    public void verificationMainTitle() {
+        if (Methods.pageTitle().equals("Tadeusz Kościuszko - inżynier i żołnierz")) {
+            System.out.println("Title correct - " + Methods.pageTitle());
+        } else System.out.println("Title incorrect - " + Methods.pageTitle());
+    }
 }

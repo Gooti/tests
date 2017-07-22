@@ -23,15 +23,30 @@ public class step01_MainPage extends AbstractTestNGSpringContextTests {
 
     @BeforeClass
     public void setUp() {
-        methods.setPage("http://localhost/TK-StronaRejestracja/");
+
+        methods.setMainPageRegistration();
     }
 
     @Test
     public void mainPage() throws InterruptedException {
+        MainPage mainPage = new MainPage();
+//        mainPage.verificationMainTitle();
+//        mainPage.goToAll();
+//        methods.setMainPageRegistration();
+//        mainPage.imgClickAll();
 
-   MainPage.goToAll();
+//        mainPage.goToPatronaty();
+//        PatronatyPage patronaty = new PatronatyPage();
+//        patronaty.clickPatronatyAll();
 
-        }
+
+
+
+        /*TODO dokonczyc przejmowanie okna i zamkniecie
+        mainPage.goToZasady();
+        ZasadyPage zasady = new ZasadyPage();
+        zasady.clickZasadyAll();*/
+    }
 
 
     @AfterClass // Runs this method after all the test methods in the current class have been run
