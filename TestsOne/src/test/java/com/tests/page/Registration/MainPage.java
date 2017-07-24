@@ -1,10 +1,7 @@
 package com.tests.page.Registration;
 
 import com.tests.Methods;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.testng.Assert;
 
 /**
  * Created by Comarch on 2017-07-21.
@@ -56,7 +53,7 @@ public class MainPage {
         goToPatronaty();
     }
 
-    public void imgPKClick() {
+    public void imgPK() {
         methods.click("//img[contains(@src,'img/bcg03.png')]", Methods.FindMode.XPATH);
     }
 
@@ -67,9 +64,10 @@ public class MainPage {
     public void imgPKFB() {
         methods.click("//img[contains(@src,'img/img06.png')]", Methods.FindMode.XPATH);
     }
-    //TODO dokonczyc przejmowanie okna
+
+
     public void imgClickAll() {
-        imgPKClick();
+        imgPK();
         Methods.back();
         imgPKFP();
         Methods.back();

@@ -4,6 +4,8 @@ package com.tests;
  * Created by Gooti on 26.10.2016.
  */
 import com.tests.page.Registration.MainPage;
+import com.tests.page.Registration.PatronatyPage;
+import com.tests.page.Registration.ZasadyPage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
@@ -30,22 +32,23 @@ public class step01_MainPage extends AbstractTestNGSpringContextTests {
     @Test
     public void mainPage() throws InterruptedException {
         MainPage mainPage = new MainPage();
-//        mainPage.verificationMainTitle();
-//        mainPage.goToAll();
-//        methods.setMainPageRegistration();
-//        mainPage.imgClickAll();
+        mainPage.verificationMainTitle();
+        mainPage.goToAll();
+        methods.setMainPageRegistration();
+        mainPage.imgClickAll();
 
-//        mainPage.goToPatronaty();
-//        PatronatyPage patronaty = new PatronatyPage();
-//        patronaty.clickPatronatyAll();
-
-
+        mainPage.goToPatronaty();
+        PatronatyPage patronaty = new PatronatyPage();
+        patronaty.clickPatronatyAll();
 
 
-        /*TODO dokonczyc przejmowanie okna i zamkniecie
+
+
+       // TODO dokonczyc przejmowanie okna i zamkniecie
         mainPage.goToZasady();
         ZasadyPage zasady = new ZasadyPage();
-        zasady.clickZasadyAll();*/
+        zasady.clickZasadyAll();
+        methods.setMainPageRegistration();
     }
 
 

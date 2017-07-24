@@ -14,7 +14,7 @@ public class ZasadyPage {
         Methods.click("//a[contains(@href,'files/RegulaminKonkursu.pdf')]//img", Methods.FindMode.XPATH);
     }
     public void downloadHKIMG(){
-        Methods.click("//a[contains(@href,'files/files/HarmonogramKonkursu.pdf')]//img", Methods.FindMode.XPATH);
+        Methods.click("//a[contains(@href,'files/HarmonogramKonkursu.pdf')]//img", Methods.FindMode.XPATH);
     }
     public void downloadWLIMG(){
         Methods.click("//a[contains(@href,'files/WykazLiteratury.pdf')]//img", Methods.FindMode.XPATH);
@@ -32,19 +32,19 @@ public class ZasadyPage {
         Methods.click("//a[contains(.,'Pobierz wykaz literatury')]", Methods.FindMode.XPATH);
     }
 
-    public void clickZasadyAll(){
+    //TODO dokonczyc przejmowanie okna
+    public void clickZasadyAll() throws InterruptedException {
         downloadRKIMG();
         Methods.back();
         downloadRKTEXT();
-        Methods.close();
+        Methods.backToParentHandle();
         downloadHKIMG();
         Methods.back();
         downloadHKTEXT();
-        Methods.close();
+        Methods.backToParentHandle();
         downloadWLIMG();
         Methods.back();
         downloadWLTEXT();
-        Methods.closeTab();
-        methods.setMainPageRegistration();
+        Methods.backToParentHandle();
     }
 }

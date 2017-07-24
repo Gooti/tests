@@ -4,6 +4,7 @@ package com.tests;
  * Created by Gooti on 26.10.2016.
  */
 
+import org.apache.xpath.SourceTree;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -14,6 +15,7 @@ import org.openqa.selenium.firefox.internal.ProfilesIni;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
+import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 
@@ -25,11 +27,19 @@ public class Methods {
     private static WebDriver driver;
 
     {
-        ProfilesIni profile = new ProfilesIni();
-        FirefoxProfile myprofile = profile.getProfile("New");
-        System.setProperty("webdriver.firefox.bin", "C:\\Program Files (x86)\\FirefoxNew\\firefox.exe");
+        //COMARCH VERSION
+
+//        ProfilesIni profile = new ProfilesIni();
+//        FirefoxProfile myprofile = profile.getProfile("New");
+//        System.setProperty("webdriver.firefox.bin", "C:\\Program Files (x86)\\FirefoxNew\\firefox.exe");
+//        System.setProperty("webdriver.gecko.driver", "C:\\tests\\geckodriver\\geckodriver.exe");
+//        driver = new FirefoxDriver(myprofile);
+//        System.out.println("Driver used is: " + driver);
+
+        //HOME VERSION
+
         System.setProperty("webdriver.gecko.driver", "C:\\tests\\geckodriver\\geckodriver.exe");
-        driver = new FirefoxDriver(myprofile);
+        driver = new FirefoxDriver();
         System.out.println("Driver used is: " + driver);
 
     }
@@ -89,7 +99,7 @@ public class Methods {
         return Page;
     }
     public WebDriver setMainPageRegistration(){
-        WebDriver mainPage = setPage("http://localhost/TK-StronaRejestracja/");
+        WebDriver mainPage = setPage("http://localhost:1331/TK-StronaRejestracja/");
     return mainPage;
     }
 
@@ -136,13 +146,21 @@ public class Methods {
        String title = getDriver().getTitle();
     return title;
     }
-
-/*TODO dokonczyc przejmowanie okna
-    public static void closeTab(){
-        driver.findElement(By.cssSelector("body")).sendKeys(Keys.CONTROL + "W");
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-
-    }*/
-
+    public static void backToParentHandle() throws InterruptedException {
+        String  parent = driver.getWindowHandle();
+//        System.out.println("Parent handle id is: " + parent);
+        Set<String> allWindows = driver.getWindowHandles();
+        int cout = allWindows.size();
+//        System.out.println(cout);
+        for(String child:allWindows){
+            if(!parent.equalsIgnoreCase(child)) {
+            driver.switchTo().window(child);
+            driver.close();
+            Thread.sleep(3000);
+            }
+            driver.switchTo().window(parent);
+        }
+    return;
+    }
 
 }
