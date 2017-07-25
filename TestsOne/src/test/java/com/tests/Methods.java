@@ -46,7 +46,7 @@ public class Methods {
 
     public enum FindMode {NAME, ID, XPATH}
 
-    public WebElement fillElementFoundByName(String field, String fieldValue) {
+    public static WebElement fillElementFoundByName(String field, String fieldValue) {
         WebElement element = getElement(field, FindMode.NAME);
         element.sendKeys(fieldValue);
         return element;

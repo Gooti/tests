@@ -8,10 +8,12 @@ import org.springframework.beans.factory.annotation.Autowired;
  * Created by Comarch on 2017-07-24.
  */
 public class RegistrationPage {
+
     @Autowired
     private Methods methods;
 
-public RegistrationPage fillRegistrationElements(RegistrationData data){
+
+    public RegistrationPage fillRegistrationElements(RegistrationData data){
     methods.fillElementFoundByName("uFirstname",data.getFirstName() );
     methods.fillElementFoundByName("uSurname",data.getSurName() );
     methods.fillElementFoundByName("uSchool",data.getSchoolName() );

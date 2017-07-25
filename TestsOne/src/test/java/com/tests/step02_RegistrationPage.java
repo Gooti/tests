@@ -30,13 +30,16 @@ public class step02_RegistrationPage extends AbstractTestNGSpringContextTests {
     @Autowired
     private Methods methods;
 
-    @Qualifier
     @Autowired
-    private RegistrationData data;
+    private RegistrationData registration;
 
     public void setMethods(Methods methods) {
 
         this.methods = methods;
+    }
+
+    public void setRegistration(RegistrationData registration) {
+        this.registration = registration;
     }
 
     @BeforeClass
@@ -50,8 +53,7 @@ public class step02_RegistrationPage extends AbstractTestNGSpringContextTests {
         MainPage mainPage = new MainPage();
         mainPage.goToRejestracja();
         RegistrationPage register = new RegistrationPage();
-        register.fillRegistrationElements(data);
-
+        register.fillRegistrationElements(registration);
 
     }
 

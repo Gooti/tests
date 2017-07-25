@@ -7,8 +7,10 @@ import org.springframework.beans.factory.annotation.Autowired;
  * Created by Comarch on 2017-07-22.
  */
 public class ZasadyPage {
+
     @Autowired
     private Methods methods;
+
 
     public void downloadRKIMG(){
         Methods.click("//a[contains(@href,'files/RegulaminKonkursu.pdf')]//img", Methods.FindMode.XPATH);

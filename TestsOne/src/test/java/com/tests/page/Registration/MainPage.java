@@ -11,6 +11,7 @@ public class MainPage {
     @Autowired
     private Methods methods;
 
+
     public void setMethods(Methods methods) {
         this.methods = methods;
     }

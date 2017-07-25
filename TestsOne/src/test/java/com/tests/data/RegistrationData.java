@@ -2,12 +2,15 @@ package com.tests.data;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.springframework.test.context.ContextConfiguration;
 
 import java.util.List;
 
 /**
  * Created by Comarch on 2017-07-24.
  */
+
+
 public class RegistrationData {
     private String firstName;
     private String surName;
