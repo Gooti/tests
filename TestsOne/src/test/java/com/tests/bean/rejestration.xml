@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+    <bean id="rejestration" class="com.tests.data.RegistrationData">
+        <property name="firstName" value="Jan"/>
+        <property name="surName" value="Kowalski"/>
+        <property name="schoolName" value="Best school"/>
+        <property name="login" value="JanKowalski"/>
+        <property name="password" value="haslo123"/>
+        <property name="repeatPassword" value="haslo123"/>
+        <property name="mail" value="sathfly@gmail.com"/>
+        <property name="captcha" value="TEST"/>
+    </bean>
+
+</beans>

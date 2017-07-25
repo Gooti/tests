@@ -11,7 +11,7 @@ import java.util.List;
 public class RegistrationData {
     private String firstName;
     private String surName;
-    private List<WebElement> province;
+    private WebElement province;
     private boolean categoryUczen;
     private boolean categoryStudent;
     private String schoolName;
@@ -37,11 +37,11 @@ public class RegistrationData {
         this.surName = surName;
     }
 
-    public List<WebElement> getProvince() {
+    public WebElement getProvince() {
         return province;
     }
 
-    public void setProvince(List<WebElement> province) {
+    public void setProvince(WebElement province) {
         this.province = province;
     }
 

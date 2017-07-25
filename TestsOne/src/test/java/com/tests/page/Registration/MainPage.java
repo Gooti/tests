@@ -15,35 +15,42 @@ public class MainPage {
         this.methods = methods;
     }
 
-    public void goToAktualnosci() {
+    public MainPage goToAktualnosci() {
         methods.click("//a[contains(.,'Aktualności')]", Methods.FindMode.XPATH);
+    return this;
     }
 
-    public void goToOkonkursie() {
+    public MainPage goToOkonkursie() {
         methods.click("//a[contains(.,'O konkursie')]", Methods.FindMode.XPATH);
+        return this;
     }
 
-    public void goToRejestracja() {
+    public MainPage goToRejestracja() {
         methods.click("//a[contains(.,'Rejestracja')]", Methods.FindMode.XPATH);
+        return this;
     }
 
-    public void goToHarmonogram() {
+    public MainPage goToHarmonogram() {
         methods.click("//a[contains(.,'Harmonogram')]", Methods.FindMode.XPATH);
+        return this;
     }
 
-    public void goToZasady() {
+    public MainPage goToZasady() {
         methods.click("//a[contains(.,'Zasady')]", Methods.FindMode.XPATH);
+        return this;
     }
 
-    public void goToKomisja() {
+    public MainPage goToKomisja() {
         methods.click("//a[contains(.,'Komisja')]", Methods.FindMode.XPATH);
+        return this;
     }
 
-    public void goToPatronaty() {
+    public MainPage goToPatronaty() {
         methods.click("//a[contains(.,'Patronaty')]", Methods.FindMode.XPATH);
+        return this;
     }
 
-    public void goToAll() {
+    public MainPage goToAll() {
         goToAktualnosci();
         goToOkonkursie();
         goToRejestracja();
@@ -51,22 +58,26 @@ public class MainPage {
         goToZasady();
         goToKomisja();
         goToPatronaty();
+        return this;
     }
 
-    public void imgPK() {
+    public MainPage imgPK() {
         methods.click("//img[contains(@src,'img/bcg03.png')]", Methods.FindMode.XPATH);
+        return this;
     }
 
-    public void imgPKFP() {
+    public MainPage imgPKFP() {
         methods.click("//img[contains(@src,'img/compFP.png')]", Methods.FindMode.XPATH);
+        return this;
     }
 
-    public void imgPKFB() {
+    public MainPage imgPKFB() {
         methods.click("//img[contains(@src,'img/img06.png')]", Methods.FindMode.XPATH);
+        return this;
     }
 
 
-    public void imgClickAll() {
+    public MainPage imgClickAll() {
         imgPK();
         Methods.back();
         imgPKFP();
@@ -75,11 +86,13 @@ public class MainPage {
         Methods.back();
         Methods.forward();
         Methods.back();
+        return this;
     }
 
-    public void verificationMainTitle() {
+    public MainPage verificationMainTitle() {
         if (Methods.pageTitle().equals("Tadeusz Kościuszko - inżynier i żołnierz")) {
             System.out.println("Title correct - " + Methods.pageTitle());
         } else System.out.println("Title incorrect - " + Methods.pageTitle());
+    return this;
     }
 }

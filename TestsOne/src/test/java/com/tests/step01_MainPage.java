@@ -29,35 +29,37 @@ public class step01_MainPage extends AbstractTestNGSpringContextTests {
         methods.setMainPageRegistration();
     }
 
-    @Test
+    @Test (description = "1. Start a main page, click every bookmark and every image - hyperlink on a main page.")
     public void mainPage() throws InterruptedException {
         MainPage mainPage = new MainPage();
-        mainPage.verificationMainTitle();
-        mainPage.goToAll();
+        mainPage.verificationMainTitle()
+                .goToAll();
         methods.setMainPageRegistration();
         mainPage.imgClickAll();
+    }
 
-        mainPage.goToPatronaty();
-        PatronatyPage patronaty = new PatronatyPage();
-        patronaty.clickPatronatyAll();
+    @Test (description = "2. Set 'Patronaty' page and check all every hyperlink.")
+        public void patronatyPage() throws InterruptedException {
+            MainPage mainPage = new MainPage();
+            mainPage.goToPatronaty();
+            PatronatyPage patronaty = new PatronatyPage();
+            patronaty.clickPatronatyAll();
+    }
 
-
-
-
-       // TODO dokonczyc przejmowanie okna i zamkniecie
+    @Test (description = "3. Set 'Zasady' page and check every every document - link and img.")
+    public void zasadyPage() throws InterruptedException {
+        MainPage mainPage = new MainPage();
         mainPage.goToZasady();
         ZasadyPage zasady = new ZasadyPage();
         zasady.clickZasadyAll();
         methods.setMainPageRegistration();
     }
 
-
     @AfterClass // Runs this method after all the test methods in the current class have been run
     public void tearDown() {
         // Close all browser windows and safely end the session
         methods.quit();
     }
-
 
 
 }
