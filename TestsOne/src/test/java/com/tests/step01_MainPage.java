@@ -24,7 +24,7 @@ public class step01_MainPage extends AbstractTestNGSpringContextTests {
     }
 
     @BeforeClass
-    public void setUp() {
+    public void setUp(){
 
         methods.setMainPageRegistration();
     }
@@ -55,9 +55,8 @@ public class step01_MainPage extends AbstractTestNGSpringContextTests {
         methods.setMainPageRegistration();
     }
 
-    @AfterClass // Runs this method after all the test methods in the current class have been run
+    @AfterClass
     public void tearDown() {
-        // Close all browser windows and safely end the session
         methods.quit();
     }
 

@@ -4,7 +4,8 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
 				http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd">
 
-    <import resource="innyplik.xml"/>
+    <import resource="registration.xml"/>
+
     <bean id="methods" class="com.tests.Methods"/>
     <bean id="registration" class="com.tests.data.RegistrationData" parent="registrationConfiguration"/>
 

@@ -54,7 +54,7 @@ public class step02_RegistrationPage extends AbstractTestNGSpringContextTests {
         mainPage.goToRejestracja();
         RegistrationPage register = new RegistrationPage();
         register.fillRegistrationElements(registration);
-
+Thread.sleep(3000);
     }
 
     @AfterClass

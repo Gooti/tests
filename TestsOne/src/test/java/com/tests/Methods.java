@@ -12,6 +12,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxProfile;
 import org.openqa.selenium.firefox.internal.ProfilesIni;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
@@ -27,20 +28,20 @@ public class Methods {
     private static WebDriver driver;
 
     {
-        //COMARCH VERSION
+//        COMARCH VERSION
 
-//        ProfilesIni profile = new ProfilesIni();
-//        FirefoxProfile myprofile = profile.getProfile("New");
-//        System.setProperty("webdriver.firefox.bin", "C:\\Program Files (x86)\\FirefoxNew\\firefox.exe");
-//        System.setProperty("webdriver.gecko.driver", "C:\\tests\\geckodriver\\geckodriver.exe");
-//        driver = new FirefoxDriver(myprofile);
-//        System.out.println("Driver used is: " + driver);
+        ProfilesIni profile = new ProfilesIni();
+        FirefoxProfile myprofile = profile.getProfile("New");
+        System.setProperty("webdriver.firefox.bin", "C:\\Program Files (x86)\\FirefoxNew\\firefox.exe");
+        System.setProperty("webdriver.gecko.driver", "C:\\tests\\geckodriver\\geckodriver.exe");
+        driver = new FirefoxDriver(myprofile);
+        System.out.println("Driver used is: " + driver);
 
         //HOME VERSION
 
-        System.setProperty("webdriver.gecko.driver", "C:\\tests\\geckodriver\\geckodriver.exe");
-        driver = new FirefoxDriver();
-        System.out.println("Driver used is: " + driver);
+//        System.setProperty("webdriver.gecko.driver", "C:\\tests\\geckodriver\\geckodriver.exe");
+//        driver = new FirefoxDriver();
+//        System.out.println("Driver used is: " + driver);
 
     }
 
@@ -52,13 +53,13 @@ public class Methods {
         return element;
     }
 
-    public WebElement fillElementFoundById(String field, String fieldValue) {
+    public static WebElement fillElementFoundById(String field, String fieldValue) {
         WebElement element = getElement(field, FindMode.ID);
         element.sendKeys(fieldValue);
         return element;
     }
 
-    public WebElement fillElementFoundByXPATH(String field, String fieldValue) {
+    public static WebElement fillElementFoundByXPATH(String field, String fieldValue) {
         WebElement element = getElement(field, FindMode.XPATH);
         element.sendKeys(fieldValue);
         return element;
@@ -98,10 +99,12 @@ public class Methods {
         Page.get(page);
         return Page;
     }
-    public WebDriver setMainPageRegistration(){
-        WebDriver mainPage = setPage("http://localhost:1331/TK-StronaRejestracja/");
+    public WebDriver setMainPageRegistration() {
+        WebDriver mainPage = setPage("http://localhost/TK-StronaRejestracja/");
+//        mainPage.manage().window().maximize();
     return mainPage;
     }
+
 
 
     public static WebElement click(String field, FindMode findMode) {
@@ -161,6 +164,22 @@ public class Methods {
             driver.switchTo().window(parent);
         }
     return;
+    }
+
+    public static void selectByValue(WebElement webElement, String value) {
+        new Select(webElement).selectByValue(value);
+    }
+
+    public void selectByIndex(WebElement webElement, int index) {
+        new Select(webElement).selectByIndex(index);
+    }
+
+    public boolean selectByVisibleText(WebElement webElement, String text) {
+        if(text != null && !text.equals("")) {
+            new Select(webElement).selectByVisibleText(text);
+            return true;
+        }
+        return false;
     }
 
 }

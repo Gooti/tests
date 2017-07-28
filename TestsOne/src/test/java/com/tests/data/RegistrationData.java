@@ -14,9 +14,8 @@ import java.util.List;
 public class RegistrationData {
     private String firstName;
     private String surName;
-    private WebElement province;
-    private boolean categoryUczen;
-    private boolean categoryStudent;
+    private String province;
+    private String category;
     private String schoolName;
     private String login;
     private String password;
@@ -40,28 +39,20 @@ public class RegistrationData {
         this.surName = surName;
     }
 
-    public WebElement getProvince() {
+    public String getProvince() {
         return province;
     }
 
-    public void setProvince(WebElement province) {
+    public void setProvince(String province) {
         this.province = province;
     }
 
-    public boolean isCategoryUczen() {
-        return categoryUczen;
+    public String getCategory() {
+        return category;
     }
 
-    public void setCategoryUczen(boolean categoryUczen) {
-        this.categoryUczen = categoryUczen;
-    }
-
-    public boolean isCategoryStudent() {
-        return categoryStudent;
-    }
-
-    public void setCategoryStudent(boolean categoryStudent) {
-        this.categoryStudent = categoryStudent;
+    public void setCategory(String category) {
+        this.category = category;
     }
 
     public String getSchoolName() {
