@@ -8,6 +8,7 @@
     <property name="firstName" value="Jan"/>
     <property name="surName" value="Kowalski"/>
     <property name="province" value="podkarpackie"/>
+    <property name="category" value="uczen"/>
     <property name="schoolName" value="Best school"/>
     <property name="login" value="JanKowalski"/>
     <property name="password" value="haslo123"/>
