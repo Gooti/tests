@@ -22,7 +22,9 @@ public class RegistrationPage {
     public RegistrationPage fillRegistrationElements(RegistrationData data){
         methods.fillElementFoundByName("uFirstname",data.getFirstName() );
         methods.fillElementFoundByName("uSurname",data.getSurName() );
-//        methods.selectByValue(Methods.getElement("//select[contains(@name,'uProvince')]", Methods.FindMode.XPATH),data.getProvince());
+//        Methods.selectByVisibleText(Methods.getElement("//select[contains(@name,'uProvince')]", Methods.FindMode.XPATH),data.getProvince());
+//        Methods.selectByIndex(Methods.getElement("//select[contains(@name,'uProvince')]", Methods.FindMode.XPATH),3);
+        Methods.selectByIndex(province,3);
         if(data.getCategory().equals("uczen")){
             Methods.click("//input[contains(@value,'U')]", Methods.FindMode.XPATH);
         } else Methods.click("//input[contains(@value,'S')]", Methods.FindMode.XPATH);
