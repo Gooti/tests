@@ -1,11 +1,11 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
-<suite name="TestAll">
+<suite name="This suit checks main process without errors -> registration -> fill test">
 
     <test name="order">
         <classes>
-            <class name="com.tests.step02_RegistrationPage" />
             <!--<class name="com.tests.step01_MainPage" />-->
+            <class name="com.tests.step02_RegistrationPage" />
         </classes>
     </test>
 

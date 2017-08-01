@@ -4,6 +4,8 @@ package com.tests;
  * Created by Gooti on 26.10.2016.
  */
 
+import com.tests.page.Registration.RegistrationPage;
+import org.apache.commons.lang3.RandomStringUtils;
 import org.apache.xpath.SourceTree;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -30,18 +32,18 @@ public class Methods {
     {
 //        COMARCH VERSION
 
-        ProfilesIni profile = new ProfilesIni();
-        FirefoxProfile myprofile = profile.getProfile("New");
-        System.setProperty("webdriver.firefox.bin", "C:\\Program Files (x86)\\FirefoxNew\\firefox.exe");
-        System.setProperty("webdriver.gecko.driver", "C:\\tests\\geckodriver\\geckodriver.exe");
-        driver = new FirefoxDriver(myprofile);
-        System.out.println("Driver used is: " + driver);
+//        ProfilesIni profile = new ProfilesIni();
+//        FirefoxProfile myprofile = profile.getProfile("New");
+//        System.setProperty("webdriver.firefox.bin", "C:\\Program Files (x86)\\FirefoxNew\\firefox.exe");
+//        System.setProperty("webdriver.gecko.driver", "C:\\tests\\geckodriver\\geckodriver.exe");
+//        driver = new FirefoxDriver(myprofile);
+//        System.out.println("Driver used is: " + driver);
 
         //HOME VERSION
 
-//        System.setProperty("webdriver.gecko.driver", "C:\\tests\\geckodriver\\geckodriver.exe");
-//        driver = new FirefoxDriver();
-//        System.out.println("Driver used is: " + driver);
+        System.setProperty("webdriver.gecko.driver", "C:\\tests\\geckodriver\\geckodriver.exe");
+        driver = new FirefoxDriver();
+        System.out.println("Driver used is: " + driver);
 
     }
 
@@ -100,7 +102,7 @@ public class Methods {
         return Page;
     }
     public WebDriver setMainPageRegistration() {
-        WebDriver mainPage = setPage("http://localhost/TK-StronaRejestracja/");
+        WebDriver mainPage = setPage("http://localhost:1331/TK-StronaRejestracja/");
 //        mainPage.manage().window().maximize();
     return mainPage;
     }
@@ -170,16 +172,25 @@ public class Methods {
         new Select(webElement).selectByValue(value);
     }
 
-    public void selectByIndex(WebElement webElement, int index) {
+    public static void selectByIndex(WebElement webElement, int index) {
         new Select(webElement).selectByIndex(index);
     }
 
-    public boolean selectByVisibleText(WebElement webElement, String text) {
+    public static boolean selectByVisibleText(WebElement webElement, String text) {
         if(text != null && !text.equals("")) {
             new Select(webElement).selectByVisibleText(text);
             return true;
         }
         return false;
     }
+
+    public String generateRandomString(int length){
+        return RandomStringUtils.randomAlphabetic(length);
+    }
+    public String generateRandomNumber(int length){
+        return RandomStringUtils.randomNumeric(length);
+    }
+
+
 
 }

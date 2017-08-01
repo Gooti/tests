@@ -7,20 +7,12 @@ package com.tests;
 import com.tests.data.RegistrationData;
 import com.tests.page.Registration.MainPage;
 import com.tests.page.Registration.RegistrationPage;
-import org.apache.xpath.SourceTree;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-
-import java.util.concurrent.TimeUnit;
 
 import static org.testng.Assert.assertEquals;
 @ContextConfiguration("testone.xml")
@@ -54,7 +46,7 @@ public class step02_RegistrationPage extends AbstractTestNGSpringContextTests {
         mainPage.goToRejestracja();
         RegistrationPage register = new RegistrationPage();
         register.fillRegistrationElements(registration);
-Thread.sleep(3000000);
+        Thread.sleep(3000000);
     }
 
     @AfterClass

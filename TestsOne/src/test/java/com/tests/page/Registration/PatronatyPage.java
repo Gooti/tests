@@ -2,7 +2,6 @@ package com.tests.page.Registration;
 
 import com.tests.Methods;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.testng.reporters.jq.Main;
 
 /**
  * Created by Comarch on 2017-07-22.

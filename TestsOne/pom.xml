@@ -17,7 +17,7 @@
                 <configuration>
                     <forkMode>never</forkMode>
                     <suiteXmlFiles>
-                        <suiteXmlFile>testng.xml</suiteXmlFile>
+                        <suiteXmlFile>suites/suite_full_process_without_errors_01.xml</suiteXmlFile>
                     </suiteXmlFiles>
                 </configuration>
             </plugin>
