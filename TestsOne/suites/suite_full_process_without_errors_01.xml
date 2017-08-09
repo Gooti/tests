@@ -6,6 +6,7 @@
         <classes>
             <!--<class name="com.tests.step01_MainPage" />-->
             <class name="com.tests.step02_RegistrationPage" />
+            <class name="com.tests.step03_TestLogin" />
         </classes>
     </test>
 

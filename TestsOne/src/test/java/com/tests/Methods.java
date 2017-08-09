@@ -6,6 +6,7 @@ package com.tests;
 
 import com.tests.page.Registration.RegistrationPage;
 import org.apache.commons.lang3.RandomStringUtils;
+import org.apache.regexp.RE;
 import org.apache.xpath.SourceTree;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -49,6 +50,8 @@ public class Methods {
 
     public enum FindMode {NAME, ID, XPATH}
 
+    public enum LogPass {LOGIN, PASSWORD}
+
     public static WebElement fillElementFoundByName(String field, String fieldValue) {
         WebElement element = getElement(field, FindMode.NAME);
         element.sendKeys(fieldValue);
@@ -88,26 +91,30 @@ public class Methods {
         return element;
     }
 
-    public WebDriver quit()
-    {
-        WebDriver closeDriver = getDriver();
-        closeDriver.quit();
-        return closeDriver;
+    public WebDriver quit() {
+        WebDriver quitDriver = getDriver();
+        quitDriver.quit();
+        return quitDriver;
     }
 
-    public WebDriver setPage(String page)
-    {
+
+    public WebDriver setPage(String page) {
         WebDriver Page = getDriver();
         Page.get(page);
         return Page;
     }
+
     public WebDriver setMainPageRegistration() {
         WebDriver mainPage = setPage("http://localhost:1331/TK-StronaRejestracja/");
 //        mainPage.manage().window().maximize();
-    return mainPage;
+        return mainPage;
     }
 
-
+    public WebDriver setTestPage() {
+        WebDriver mainPage = setPage("http://89.187.249.153:1331/TK-StronaTestOnLine/");
+//        mainPage.manage().window().maximize();
+        return mainPage;
+    }
 
     public static WebElement click(String field, FindMode findMode) {
 
@@ -129,43 +136,45 @@ public class Methods {
         }
         return element;
     }
-    public static WebDriver back (){
+
+    public static WebDriver back() {
         WebDriver page = getDriver();
         page.navigate().back();
-    return page;
+        return page;
     }
 
-    public static WebDriver close (){
+    public static WebDriver close() {
         WebDriver page = getDriver();
         page.close();
         return page;
     }
 
-    public static WebDriver forward (){
+    public static WebDriver forward() {
         WebDriver page = getDriver();
         page.navigate().forward();
         return page;
     }
 
-    public static String pageTitle (){
-       String title = getDriver().getTitle();
-    return title;
+    public static String pageTitle() {
+        String title = getDriver().getTitle();
+        return title;
     }
+
     public static void backToParentHandle() throws InterruptedException {
-        String  parent = driver.getWindowHandle();
+        String parent = driver.getWindowHandle();
 //        System.out.println("Parent handle id is: " + parent);
         Set<String> allWindows = driver.getWindowHandles();
         int cout = allWindows.size();
 //        System.out.println(cout);
-        for(String child:allWindows){
-            if(!parent.equalsIgnoreCase(child)) {
-            driver.switchTo().window(child);
-            driver.close();
-            Thread.sleep(3000);
+        for (String child : allWindows) {
+            if (!parent.equalsIgnoreCase(child)) {
+                driver.switchTo().window(child);
+                driver.close();
+                Thread.sleep(3000);
             }
             driver.switchTo().window(parent);
         }
-    return;
+        return;
     }
 
     public static void selectByValue(WebElement webElement, String value) {
@@ -177,19 +186,49 @@ public class Methods {
     }
 
     public static boolean selectByVisibleText(WebElement webElement, String text) {
-        if(text != null && !text.equals("")) {
+        if (text != null && !text.equals("")) {
             new Select(webElement).selectByVisibleText(text);
             return true;
         }
         return false;
     }
 
-    public String generateRandomString(int length){
+    public String generateRandomString(int length) {
         return RandomStringUtils.randomAlphabetic(length);
     }
-    public String generateRandomNumber(int length){
+
+    public String generateRandomNumber(int length) {
         return RandomStringUtils.randomNumeric(length);
     }
+
+    public static String getValueName(LogPass logPass) {
+        String element = null;
+
+        switch (logPass) {
+            case LOGIN:
+                WebElement pwd = Methods.getElement("uLogin", Methods.FindMode.NAME);
+                 element = pwd.getAttribute("value");
+                break;
+
+            case PASSWORD:
+                WebElement login = Methods.getElement("uPassA", Methods.FindMode.NAME);
+                element = login.getAttribute("value");
+                break;
+        }
+        return element;
+    }
+
+    static String user = "User";
+    static String valueLogin = user + RandomStringUtils.randomNumeric(3);
+    public static String getLogin() {
+        return valueLogin;
+    }
+
+    static String valuePass = RandomStringUtils.randomAlphabetic(3) + RandomStringUtils.randomNumeric(3);
+    public static String getPass() {
+        return valuePass;
+    }
+
 
 
 

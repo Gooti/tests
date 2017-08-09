@@ -38,7 +38,7 @@ public class step01_MainPage extends AbstractTestNGSpringContextTests {
         mainPage.imgClickAll();
     }
 
-    @Test (description = "2. Set 'Patronaty' page and check all every hyperlink.")
+    @Test (description = "2. Set 'Patronaty' page and check every hyperlink.")
         public void patronatyPage() throws InterruptedException {
             MainPage mainPage = new MainPage();
             mainPage.goToPatronaty();
@@ -57,7 +57,7 @@ public class step01_MainPage extends AbstractTestNGSpringContextTests {
 
     @AfterClass
     public void tearDown() {
-        methods.quit();
+//        Methods.close();
     }
 
 
