@@ -5,10 +5,10 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
     http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 
-    <bean id="registration" class="com.tests.data.RegistrationData">
+    <bean id="registration" class="com.tests.data.RegistrationData"></bean>
+    <bean id="test" class="com.tests.data.TestData"></bean>
 
 
 
-    </bean>
 
 </beans>

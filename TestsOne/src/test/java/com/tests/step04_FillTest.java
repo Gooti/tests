@@ -4,11 +4,8 @@ package com.tests;
  * Created by Gooti on 26.10.2016.
  */
 
-import com.tests.Methods;
-import com.tests.data.RegistrationData;
-import com.tests.page.Registration.MainPage;
-import com.tests.page.Registration.RegistrationPage;
 import com.tests.page.TestPage.LoginPage;
+import com.tests.page.TestPage.TestPage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
@@ -18,11 +15,17 @@ import org.testng.annotations.Test;
 
 @ContextConfiguration("testone.xml")
 
-public class step03_TestLogin extends AbstractTestNGSpringContextTests {
+public class step04_FillTest extends AbstractTestNGSpringContextTests {
 
     @Autowired
     private Methods methods;
 
+    @Autowired
+    private Config config;
+
+    public void setConfig(Config config) {
+        this.config = config;
+    }
 
     public void setMethods(Methods methods) {
 
@@ -33,13 +36,14 @@ public class step03_TestLogin extends AbstractTestNGSpringContextTests {
     @BeforeClass
     public void setUp() {
 
-        methods.setTestPage();
+//        methods.setTestPage();
     }
 
     @Test(description = "1. Go to main page of test and log in.")
     public void registrationPage() throws InterruptedException {
-        LoginPage logInData = new LoginPage();
-        logInData.setData();
+        TestPage test = new TestPage();
+        test.question(config.getTest());
+        Thread.sleep(3000);
     }
 
     @AfterClass

@@ -131,6 +131,7 @@ public class Methods {
             }
             case XPATH: {
                 element = getElement(field, FindMode.XPATH);
+                System.out.println(element);
                 element.click();
             }
         }

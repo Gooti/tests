@@ -10,7 +10,7 @@
 
     <bean id="config" class="com.tests.Config">
         <property name="registration" ref="registration_suit01"/>
-        <!--<property name="test" ref="test_suit01"/>-->
+        <property name="test" ref="test_suit01"/>
 
     </bean>
 
