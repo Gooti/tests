@@ -1,6 +1,6 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
-<suite name="This suit checks main process without errors -> registration -> fill test">
+<suite name="This suit checks main process without errors -> registration -> fill test -> submit">
 
     <test name="order">
         <classes>

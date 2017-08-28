@@ -1,13 +1,9 @@
 package com.tests.page.TestPage;
 
 import com.tests.Methods;
-import com.tests.data.RegistrationData;
 import com.tests.data.TestData;
-import org.apache.commons.lang3.RandomStringUtils;
-import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.springframework.beans.factory.annotation.Autowired;
 

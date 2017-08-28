@@ -28,6 +28,7 @@ public class LoginPage {
         System.out.println("Value of login: " + methods.getLogin());
         System.out.println("Value password is: " + methods.getPass());
         return this;
+
     }
 
     public LoginPage checkError() {

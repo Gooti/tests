@@ -4,23 +4,14 @@ package com.tests;
  * Created by Gooti on 26.10.2016.
  */
 
-import com.tests.page.Registration.RegistrationPage;
 import org.apache.commons.lang3.RandomStringUtils;
-import org.apache.regexp.RE;
-import org.apache.xpath.SourceTree;
 import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.firefox.FirefoxProfile;
-import org.openqa.selenium.firefox.internal.ProfilesIni;
 import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.Assert;
 
 import java.util.Set;
-import java.util.concurrent.TimeUnit;
 
 
 public class Methods {
@@ -45,6 +36,8 @@ public class Methods {
         System.setProperty("webdriver.gecko.driver", "C:\\tests\\geckodriver\\geckodriver.exe");
         driver = new FirefoxDriver();
         System.out.println("Driver used is: " + driver);
+
+
 
     }
 

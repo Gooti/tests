@@ -15,14 +15,41 @@
         <property name="captcha" value="TEST"/>
     </bean>
 
-    <bean id="test_suit02" class="com.tests.data.RegistrationData">
-        <property name="firstName" value="Jan"/>
-        <property name="surName" value="Kowalski"/>
-        <property name="province" value="podkarpackie"/>
-        <property name="category" value="uczen"/>
-        <property name="schoolName" value="Best school"/>
-        <property name="mail" value="sathfly@gmail.com"/>
-        <property name="captcha" value="TEST"/>
+    <bean id="test_suit02" class="com.tests.data.TestData">
+        <property name="quest">
+            <list>
+                <value>A</value>
+                <value>B</value>
+                <value>A</value>
+                <value>B</value>
+                <value>A</value>
+                <value>B</value>
+                <value>A</value>
+                <value>B</value>
+                <value>A</value>
+                <value>B</value>
+                <value>A</value>
+                <value>B</value>
+                <value>A</value>
+                <value>B</value>
+                <value>A</value>
+                <value>B</value>
+                <value>A</value>
+                <value>B</value>
+                <value>A</value>
+                <value>B</value>
+                <value>A</value>
+                <value>B</value>
+                <value>A</value>
+                <value>B</value>
+                <value>A</value>
+                <value>B</value>
+                <value>A</value>
+                <value>B</value>
+                <value>A</value>
+                <value>B</value>
+            </list>
+        </property>
     </bean>
 
 </beans>
