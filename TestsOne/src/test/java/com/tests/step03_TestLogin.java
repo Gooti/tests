@@ -36,17 +36,10 @@ public class step03_TestLogin extends AbstractTestNGSpringContextTests {
         methods.setTestPage();
     }
 
-    @Test(description = "1. Go to main page of test and log in.")
+    @Test(description = "Go to main page of test and log in.")
     public void registrationPage() throws InterruptedException {
         LoginPage logInData = new LoginPage();
         logInData.setData();
     }
-
-    @AfterClass
-    public void tearDown() {
-
-//        methods.quit();
-    }
-
 
 }

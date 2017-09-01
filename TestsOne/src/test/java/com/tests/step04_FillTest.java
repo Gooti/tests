@@ -36,20 +36,19 @@ public class step04_FillTest extends AbstractTestNGSpringContextTests {
     @BeforeClass
     public void setUp() {
 
-//        methods.setTestPage();
     }
 
-    @Test(description = "1. Go to main page of test and log in.")
+    @Test(description = "Go to TestPage and fill answers.")
     public void registrationPage() throws InterruptedException {
         TestPage test = new TestPage();
         test.question(config.getTest());
-        Thread.sleep(3000);
+        test.submitButton();
     }
 
     @AfterClass
     public void tearDown() {
 
-//        methods.quit();
+        methods.quit();
     }
 
 

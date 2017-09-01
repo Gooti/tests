@@ -3,6 +3,7 @@ package com.tests;
 /**
  * Created by Gooti on 26.10.2016.
  */
+
 import com.tests.page.Registration.MainPage;
 import com.tests.page.Registration.PatronatyPage;
 import com.tests.page.Registration.ZasadyPage;
@@ -24,12 +25,12 @@ public class step01_MainPage extends AbstractTestNGSpringContextTests {
     }
 
     @BeforeClass
-    public void setUp(){
+    public void setUp() {
 
         methods.setMainPageRegistration();
     }
 
-    @Test (description = "1. Start a main page, click every bookmark and every image - hyperlink on a main page.")
+    @Test(description = "1. Start a main page, click every bookmark and every image - hyperlink on a main page.")
     public void mainPage() throws InterruptedException {
         MainPage mainPage = new MainPage();
         mainPage.verificationMainTitle()
@@ -38,26 +39,21 @@ public class step01_MainPage extends AbstractTestNGSpringContextTests {
         mainPage.imgClickAll();
     }
 
-    @Test (description = "2. Set 'Patronaty' page and check every hyperlink.")
-        public void patronatyPage() throws InterruptedException {
-            MainPage mainPage = new MainPage();
-            mainPage.goToPatronaty();
-            PatronatyPage patronaty = new PatronatyPage();
-            patronaty.clickPatronatyAll();
+    @Test(description = "2. Set 'Patronaty' page and check every hyperlink.")
+    public void patronatyPage() throws InterruptedException {
+        MainPage mainPage = new MainPage();
+        mainPage.goToPatronaty();
+        PatronatyPage patronaty = new PatronatyPage();
+        patronaty.clickPatronatyAll();
     }
 
-    @Test (description = "3. Set 'Zasady' page and check every every document - link and img.")
+    @Test(description = "3. Set 'Zasady' page and check every every document - link and img.")
     public void zasadyPage() throws InterruptedException {
         MainPage mainPage = new MainPage();
         mainPage.goToZasady();
         ZasadyPage zasady = new ZasadyPage();
         zasady.clickZasadyAll();
         methods.setMainPageRegistration();
-    }
-
-    @AfterClass
-    public void tearDown() {
-//        Methods.close();
     }
 
 

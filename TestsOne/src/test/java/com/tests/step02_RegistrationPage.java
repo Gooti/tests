@@ -12,6 +12,7 @@ import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
+
 @ContextConfiguration("testone.xml")
 
 public class step02_RegistrationPage extends AbstractTestNGSpringContextTests {
@@ -36,20 +37,12 @@ public class step02_RegistrationPage extends AbstractTestNGSpringContextTests {
         methods.setMainPageRegistration();
     }
 
-    @Test(description = "1. Go to 'Rejestracja' page and fill elements.")
+    @Test(description = "Go to 'Rejestracja' page and fill elements.")
     public void registrationPage() throws InterruptedException {
         MainPage mainPage = new MainPage();
         mainPage.goToRejestracja();
         RegistrationPage register = new RegistrationPage();
         register.fillRegistrationElements(config.getRegistration());
-//        Thread.sleep(3000000);
     }
-
-    @AfterClass
-    public void tearDown() {
-
-//        Methods.close();
-    }
-
 
 }

@@ -22,28 +22,15 @@ public class Methods {
     private static WebDriver driver;
 
     {
-//        COMARCH VERSION
-
-//        ProfilesIni profile = new ProfilesIni();
-//        FirefoxProfile myprofile = profile.getProfile("New");
-//        System.setProperty("webdriver.firefox.bin", "C:\\Program Files (x86)\\FirefoxNew\\firefox.exe");
-//        System.setProperty("webdriver.gecko.driver", "C:\\tests\\geckodriver\\geckodriver.exe");
-//        driver = new FirefoxDriver(myprofile);
-//        System.out.println("Driver used is: " + driver);
-
-        //HOME VERSION
-
         System.setProperty("webdriver.gecko.driver", "C:\\tests\\geckodriver\\geckodriver.exe");
         driver = new FirefoxDriver();
         System.out.println("Driver used is: " + driver);
-
-
-
     }
 
     public enum FindMode {NAME, ID, XPATH}
 
     public enum LogPass {LOGIN, PASSWORD}
+
 
     public static WebElement fillElementFoundByName(String field, String fieldValue) {
         WebElement element = getElement(field, FindMode.NAME);
@@ -201,7 +188,7 @@ public class Methods {
         switch (logPass) {
             case LOGIN:
                 WebElement pwd = Methods.getElement("uLogin", Methods.FindMode.NAME);
-                 element = pwd.getAttribute("value");
+                element = pwd.getAttribute("value");
                 break;
 
             case PASSWORD:
@@ -214,16 +201,16 @@ public class Methods {
 
     static String user = "User";
     static String valueLogin = user + RandomStringUtils.randomNumeric(3);
+
     public static String getLogin() {
         return valueLogin;
     }
 
     static String valuePass = RandomStringUtils.randomAlphabetic(3) + RandomStringUtils.randomNumeric(3);
+
     public static String getPass() {
         return valuePass;
     }
-
-
 
 
 }
