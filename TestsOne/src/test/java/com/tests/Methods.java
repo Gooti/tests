@@ -22,7 +22,7 @@ public class Methods {
     private static WebDriver driver;
 
     {
-        System.setProperty("webdriver.gecko.driver", "C:\\tests\\geckodriver\\geckodriver.exe");
+        System.setProperty("webdriver.gecko.driver", "geckodriver");
         driver = new FirefoxDriver();
         System.out.println("Driver used is: " + driver);
     }
